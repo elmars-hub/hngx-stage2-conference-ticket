@@ -59,7 +59,7 @@ function Ready({ formData }) {
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
                   Enter your email *
                 </label>
-                <p className="font-roboto truncate text-[12px] font-bold leading-[18px] text-white">
+                <p className="font-roboto text-finalText truncate text-[12px] font-bold leading-[18px]">
                   {formData.email}
                 </p>
               </div>
@@ -69,7 +69,7 @@ function Ready({ formData }) {
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
                   Ticket Type:
                 </label>
-                <p className="font-roboto text-[12px] font-bold leading-[18px] text-white">
+                <p className="font-roboto text-finalText text-[12px] font-bold leading-[18px]">
                   {formData.ticketType}
                 </p>
               </div>
@@ -77,7 +77,7 @@ function Ready({ formData }) {
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
                   Ticket for :
                 </label>
-                <p className="font-roboto text-[12px] font-bold leading-[18px] text-white">
+                <p className="font-roboto text-finalText text-[12px] font-bold leading-[18px]">
                   {formData.numberOfTickets}
                 </p>
               </div>
@@ -89,7 +89,7 @@ function Ready({ formData }) {
               <textarea
                 disabled
                 value={formData.specialRequest}
-                className="font-roboto resize-none overflow-y-auto bg-transparent text-[10px] font-bold leading-[15px] text-white"
+                className="font-roboto text-finalText resize-none overflow-y-auto bg-transparent text-[10px] font-bold leading-[15px]"
               />
             </div>
           </div>
