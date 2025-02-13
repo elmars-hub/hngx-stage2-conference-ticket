@@ -46,7 +46,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
         break;
       case 'imageUrl':
         if (!value) {
-          newErrors.imageUrl = 'Profile photo is required';
+          newErrors.imageUrl = 'A ticket photo is required';
         } else {
           newErrors.imageUrl = '';
         }
@@ -126,7 +126,11 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
 
         <div className="mx-auto flex h-[200px] max-w-[508px] items-center bg-imageBg">
           <div
-            className="relative mx-auto flex aspect-square min-h-[200px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-3xl border-4 border-borderButtom bg-borderBg"
+            className={`relative mx-auto flex aspect-square min-h-[200px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-3xl border-4 ${
+              showValidation && errors.imageUrl
+                ? 'border-red-500'
+                : 'border-borderButtom'
+            } bg-borderBg`}
             onClick={handleClick}
           >
             {imageIsUploading ? (
@@ -146,6 +150,11 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
                 <p className="font-roboto mt-2 text-center text-base text-stone-200">
                   Drag & drop or click to <br /> upload
                 </p>
+                {showValidation && errors.imageUrl && (
+                  <p className="mt-2 text-center text-sm text-red-500">
+                    {errors.imageUrl}
+                  </p>
+                )}
               </div>
             )}
           </div>
@@ -156,6 +165,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
             onChange={(e) => handleImageUpload(e.target.files)}
             className="hidden"
             accept="image/*"
+            required
           />
         </div>
       </div>
