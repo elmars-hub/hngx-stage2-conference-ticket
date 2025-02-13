@@ -17,11 +17,11 @@ function TicketSelection({ formData, updateFormData }) {
           spot now!
         </p>
 
-        <div className="mt-4 flex flex-col items-center gap-y-1 pb-2 lg:flex-row lg:items-center lg:justify-center lg:gap-x-4">
+        <div className="mt-4 flex flex-col items-center gap-y-1 pb-2 lg:flex-row lg:items-center lg:justify-center lg:gap-x-1">
           <span className="font-roboto text-finalText text-[16px] leading-[24px] lg:text-lg">
             📍 14 Festac Road, Amuwo, Lagos
           </span>
-          <span className="hidden lg:block">| |</span>
+          <span className="hidden lg:block">||</span>
           <p className="font-roboto text-finalText text-base leading-[24px]">
             March 15, 2025 | 7:00 PM
           </p>

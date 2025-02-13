@@ -11,6 +11,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
     name: '',
     email: '',
     imageUrl: '',
+    specialRequest: '',
   });
   const fileInputRef = useRef(null);
 
@@ -50,6 +51,16 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
           newErrors.imageUrl = '';
         }
         break;
+      case 'specialRequest':
+        if (!value?.trim()) {
+          newErrors.specialRequest = 'Please make a special request';
+        } else if (value.trim().length < 10) {
+          newErrors.specialRequest =
+            'Special request must be at least 10 characters';
+        } else {
+          newErrors.specialRequest = '';
+        }
+        break;
       default:
         break;
     }
@@ -63,6 +74,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
       name: validateForm('name', formData.name),
       email: validateForm('email', formData.email),
       imageUrl: validateForm('imageUrl', formData.imageUrl),
+      specialRequest: validateForm('specialRequest', formData.specialRequest),
     };
 
     setErrors(newErrors);
@@ -112,7 +124,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
           Upload Profile Photo
         </h2>
 
-        <div className="placeite mx-auto h-[200px] max-w-[508px] bg-imageBg">
+        <div className="mx-auto flex h-[200px] max-w-[508px] items-center bg-imageBg">
           <div
             className="relative mx-auto flex aspect-square min-h-[200px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-3xl border-4 border-borderButtom bg-borderBg"
             onClick={handleClick}
@@ -160,6 +172,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
         </label>
         <input
           type="text"
+          required
           className={`font-roboto h-12 w-full rounded-xl border ${
             showValidation && errors.name ? 'border-red-500' : 'border-fextBg'
           } bg-subBackground p-2 text-stone-300 outline-none active:outline-none`}
@@ -182,13 +195,13 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
           <img src={Email} alt="" className="pl-2 pr-2" />
           <input
             type="email"
+            required
             className="font-roboto w-full bg-transparent text-stone-300 outline-none active:outline-none"
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
             onBlur={(e) =>
               showValidation && validateForm('email', e.target.value)
             }
-            required
             placeholder="hello@avioflagos.io"
           />
         </div>
@@ -200,12 +213,23 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
           Special request?
         </label>
         <textarea
-          className="font-roboto w-full resize-none rounded-xl border border-fextBg bg-subBackground p-2 text-stone-300 outline-none active:outline-none"
+          className={`font-roboto w-full resize-none rounded-xl border ${
+            showValidation && errors.specialRequest
+              ? 'border-red-500'
+              : 'border-fextBg'
+          } bg-subBackground p-2 text-stone-300 outline-none active:outline-none`}
           rows="5"
+          required
           value={formData.specialRequest}
           placeholder="Textarea"
-          onChange={(e) => updateFormData({ specialRequest: e.target.value })}
+          onChange={(e) => handleInputChange('specialRequest', e.target.value)}
+          onBlur={(e) =>
+            showValidation && validateForm('specialRequest', e.target.value)
+          }
         />
+        {showValidation && errors.specialRequest && (
+          <p className="mt-1 text-sm text-red-500">{errors.specialRequest}</p>
+        )}
       </form>
     </>
   );
