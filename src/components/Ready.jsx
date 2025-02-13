@@ -9,7 +9,7 @@ function Ready({ formData }) {
         <p className="font-Alatsi text-center text-2xl text-[32px] font-bold leading-[33.6px] text-white">
           Your Ticket is Booked!
         </p>
-        <p className="font-roboto text-finalText text-center text-2xl leading-[33.6px]">
+        <p className="font-roboto text-center text-2xl leading-[33.6px] text-finalText">
           Check your email for a copy or you can{' '}
           <span className="font-bold">download </span>
         </p>
@@ -24,7 +24,7 @@ function Ready({ formData }) {
           className="relative"
         />
 
-        <div className="bg-ticketStroke absolute left-1/2 top-[42%] z-10 h-[446px] w-[260px] -translate-x-1/2 -translate-y-1/2 transform rounded-[16px] border border-borderButtom bg-opacity-10 p-[14px] backdrop-blur-[2px]">
+        <div className="absolute left-1/2 top-[42%] z-10 h-[446px] w-[260px] -translate-x-1/2 -translate-y-1/2 transform rounded-[16px] border border-borderButtom bg-ticketStroke bg-opacity-10 p-[14px] backdrop-blur-[2px]">
           <div className="">
             <h3 className="font-RoadRage text-center text-[34px] font-normal leading-[34px] text-white">
               Techember Fest &quot;25
@@ -39,13 +39,17 @@ function Ready({ formData }) {
           <div className="relative mx-auto mt-6 flex aspect-square w-[140px] items-center justify-center overflow-hidden rounded-[12px] border-[4px] border-border border-opacity-50">
             <img
               src={formData.imageUrl}
-              alt=""
+              alt={`Profile photo of ${formData.name}`}
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
 
           {/* Form Data */}
-          <div className="bg-formBg border-formBorder mt-3 flex w-[224px] flex-col rounded-[8px] border p-1">
+          <div
+            className="mt-3 flex w-[224px] flex-col rounded-[8px] border border-formBorder bg-formBg p-1"
+            role="region"
+            aria-label="Ticket details"
+          >
             <div className="flex w-full gap-x-2 border-b border-selectBg">
               <div className="flex w-[100px] flex-col gap-y-1 border-r border-selectBg p-1">
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
@@ -59,7 +63,7 @@ function Ready({ formData }) {
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
                   Enter your email *
                 </label>
-                <p className="font-roboto text-finalText truncate text-[12px] font-bold leading-[18px]">
+                <p className="font-roboto truncate text-[12px] font-bold leading-[18px] text-finalText">
                   {formData.email}
                 </p>
               </div>
@@ -69,7 +73,7 @@ function Ready({ formData }) {
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
                   Ticket Type:
                 </label>
-                <p className="font-roboto text-finalText text-[12px] font-bold leading-[18px]">
+                <p className="font-roboto text-[12px] font-bold leading-[18px] text-finalText">
                   {formData.ticketType}
                 </p>
               </div>
@@ -77,7 +81,7 @@ function Ready({ formData }) {
                 <label className="font-roboto text-[10px] leading-[15px] text-white/30">
                   Ticket for :
                 </label>
-                <p className="font-roboto text-finalText text-[12px] font-bold leading-[18px]">
+                <p className="font-roboto text-[12px] font-bold leading-[18px] text-finalText">
                   {formData.numberOfTickets}
                 </p>
               </div>
@@ -89,13 +93,14 @@ function Ready({ formData }) {
               <textarea
                 disabled
                 value={formData.specialRequest}
-                className="font-roboto text-finalText resize-none overflow-y-auto bg-transparent text-[10px] font-bold leading-[15px]"
+                className="font-roboto overflow-none resize-none bg-transparent text-[10px] font-bold leading-[15px] text-finalText"
+                aria-label="Special request details"
               />
             </div>
           </div>
 
           <div className="relative mt-12 flex items-center justify-center">
-            <img src={BarCode} alt="" />
+            <img src={BarCode} alt="Ticket barcode" />
           </div>
         </div>
       </div>

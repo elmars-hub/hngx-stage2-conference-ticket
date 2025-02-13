@@ -166,6 +166,8 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
             className="hidden"
             accept="image/*"
             required
+            aria-label="Upload profile photo"
+            aria-required="true"
           />
         </div>
       </div>
@@ -188,10 +190,12 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
           } bg-subBackground p-2 text-stone-300 outline-none active:outline-none`}
           value={formData.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
-          onBlur={(e) => showValidation && validateForm('name', e.target.value)}
+          aria-label="Enter your name"
         />
         {showValidation && errors.name && (
-          <p className="mt-1 text-sm text-red-500">{errors.name}</p>
+          <p id="name-error" className="mt-1 text-sm text-red-500" role="alert">
+            {errors.name}
+          </p>
         )}
 
         <label className="font-roboto mb-1 mt-4 block text-base text-stone-200">
@@ -209,14 +213,18 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
             className="font-roboto w-full bg-transparent text-stone-300 outline-none active:outline-none"
             value={formData.email}
             onChange={(e) => handleInputChange('email', e.target.value)}
-            onBlur={(e) =>
-              showValidation && validateForm('email', e.target.value)
-            }
             placeholder="hello@avioflagos.io"
+            aria-label="Enter your email"
           />
         </div>
         {showValidation && errors.email && (
-          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+          <p
+            id="email-error"
+            className="mt-1 text-sm text-red-500"
+            role="alert"
+          >
+            {errors.email}
+          </p>
         )}
 
         <label className="font-roboto mb-1 mt-4 block text-base text-stone-200">
@@ -233,12 +241,16 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
           value={formData.specialRequest}
           placeholder="Textarea"
           onChange={(e) => handleInputChange('specialRequest', e.target.value)}
-          onBlur={(e) =>
-            showValidation && validateForm('specialRequest', e.target.value)
-          }
+          aria-label="Special request"
         />
         {showValidation && errors.specialRequest && (
-          <p className="mt-1 text-sm text-red-500">{errors.specialRequest}</p>
+          <p
+            id="request-error"
+            className="mt-1 text-sm text-red-500"
+            role="alert"
+          >
+            {errors.specialRequest}
+          </p>
         )}
       </form>
     </>

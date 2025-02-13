@@ -12,17 +12,17 @@ function TicketSelection({ formData, updateFormData }) {
         <h1 className="font-RoadRage text-[48px] sm:text-[62px]">
           Techember Fest &quot;25
         </h1>
-        <p className="font-roboto text-finalText mx-auto w-[239px] text-center text-sm leading-[21px] lg:max-w-[340px] lg:text-[16px]">
+        <p className="font-roboto mx-auto w-[239px] text-center text-sm leading-[21px] text-finalText lg:max-w-[340px] lg:text-[16px]">
           Join us for an unforgettable experience at Techember Tech, Secure your
           spot now!
         </p>
 
         <div className="mt-4 flex flex-col items-center gap-y-1 pb-2 lg:flex-row lg:items-center lg:justify-center lg:gap-x-1">
-          <span className="font-roboto text-finalText text-[16px] leading-[24px] lg:text-lg">
+          <span className="font-roboto text-[16px] leading-[24px] text-finalText lg:text-lg">
             📍 14 Festac Road, Amuwo, Lagos
           </span>
           <span className="hidden lg:block">||</span>
-          <p className="font-roboto text-finalText text-base leading-[24px]">
+          <p className="font-roboto text-base leading-[24px] text-finalText">
             March 15, 2025 | 7:00 PM
           </p>
         </div>
@@ -46,14 +46,16 @@ function TicketSelection({ formData, updateFormData }) {
                   ? 'border-border bg-selectBg'
                   : 'border-border hover:bg-selectBg'
               } `}
+              role="radio"
+              aria-label={`${ticket.label} ticket - ${ticket.price}`}
             >
-              <div className="font-roboto text-finalText mb-2 text-left text-2xl font-bold">
+              <div className="font-roboto mb-2 text-left text-2xl font-bold text-finalText">
                 {ticket.price}
               </div>
-              <div className="font-roboto text-finalText mb-2 text-left text-sm font-medium">
+              <div className="font-roboto mb-2 text-left text-sm font-medium text-finalText">
                 {ticket.label}
               </div>
-              <div className="font-roboto text-finalText text-left text-sm">
+              <div className="font-roboto text-left text-sm text-finalText">
                 20/52
               </div>
             </button>
@@ -62,7 +64,7 @@ function TicketSelection({ formData, updateFormData }) {
       </div>
 
       <div className="mt-8">
-        <label className="font-roboto text-finalText mb-2 block text-xl">
+        <label className="font-roboto mb-2 block text-xl text-finalText">
           Number of Tickets
         </label>
         <select
@@ -70,7 +72,8 @@ function TicketSelection({ formData, updateFormData }) {
           onChange={(e) =>
             updateFormData({ numberOfTickets: Number(e.target.value) })
           }
-          className="font-roboto text-finalText w-full rounded-lg border-2 border-fextBg bg-subBackground p-4 focus:outline-none"
+          className="font-roboto w-full rounded-lg border-2 border-fextBg bg-subBackground p-4 text-finalText focus:outline-none"
+          aria-label="Select number of tickets"
         >
           {[1, 2, 3, 4, 5].map((num) => (
             <option key={num} value={num}>
