@@ -114,7 +114,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
 
         <div className="placeite mx-auto h-[200px] max-w-[508px] bg-imageBg">
           <div
-            className="mx-auto flex min-h-[200px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-3xl border-4 border-borderButtom bg-borderBg"
+            className="relative mx-auto flex aspect-square min-h-[200px] max-w-[240px] cursor-pointer items-center justify-center overflow-hidden rounded-3xl border-4 border-borderButtom bg-borderBg"
             onClick={handleClick}
           >
             {imageIsUploading ? (
@@ -126,7 +126,7 @@ function PersonalInfo({ formData, updateFormData, showValidation }) {
               <img
                 src={image}
                 alt="Uploaded"
-                className="h-full w-full object-cover"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             ) : (
               <div className="flex flex-col items-center justify-center">

@@ -106,7 +106,7 @@ function Home() {
         >
           {PageDisplay()}
 
-          <div className="-4 mt-4 flex flex-col-reverse pb-4 sm:mt-6 sm:flex-row sm:gap-4 sm:pb-6 md:mt-8">
+          <div className="mt-4 flex flex-col-reverse gap-4 pb-4 sm:mt-6 sm:flex-row sm:gap-4 sm:pb-6 md:mt-8">
             {page === 0 && (
               <>
                 <button
