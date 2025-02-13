@@ -37,33 +37,6 @@ A modern React application for generating and managing conference tickets. This 
    - Navigation between pages
    - Layout components
 
-### Local Storage Implementation
-
-We created a simple storage utility (`src/utils/storage.js`) to handle localStorage operations:
-
-```javascript
-const storage = {
-  save: function (key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
-  },
-
-  get: function (key) {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
-  },
-
-  remove: function (key) {
-    localStorage.removeItem(key);
-  },
-};
-```
-
-This utility is used to:
-
-- Save form progress
-- Persist user data between sessions
-- Clear data when resetting the form
-
 ## 🎨 Styling
 
 - Tailwind CSS for utility-first styling
