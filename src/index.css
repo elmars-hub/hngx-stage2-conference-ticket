@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.gradient {
+  background:
+    radial-gradient(
+      52.52% 32.71% at 50% 97.66%,
+      rgba(36, 160, 181, 0.2),
+      rgba(36, 160, 181, 0)
+    ),
+    #02191d;
+}
+
+.road-gradient {
+  background:
+    radial-gradient(
+      57.42% 106.59% at 14.02% 32.06%,
+      rgba(36, 160, 181, 0.2),
+      rgba(36, 160, 181, 0)
+    ),
+    rgba(10, 12, 17, 0.1);
+}
+
+.font-RoadRage {
+  font-family:
+    Road Rage,
+    sans-serif;
+}
+
+.font-roboto {
+  font-family: Roboto, sans-serif;
+}
+
+.font-Alatsi {
+  font-family: Alatsi, sans-serif;
+}
